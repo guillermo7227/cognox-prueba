@@ -22,15 +22,17 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group([
-    'prefix' => 'accounts',
-    'as'     => 'accounts.',
+    'prefix'     => 'accounts',
+    'as'         => 'accounts.',
+    'middleware' => 'auth'
 ], function() {
     Route::get('/', [AccountController::class, 'index'])->name('index');
 });
 
 Route::group([
-    'prefix' => 'transferences',
-    'as'     => 'transferences.',
+    'prefix'     => 'transferences',
+    'as'         => 'transferences.',
+    'middleware' => 'auth'
 ], function() {
     Route::get('/', [TransferenceController::class, 'index'])->name('index');
 

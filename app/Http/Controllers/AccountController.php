@@ -9,7 +9,7 @@ class AccountController extends Controller
 {
     public function index()
     {
-        $accounts = Account::where('user_id', auth()->id())
+        $accounts = Account::own()
                             ->orderBy('name')
                             ->get();
         return view('accounts.index', compact('accounts'));

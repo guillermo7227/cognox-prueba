@@ -1,1 +1,1 @@
-<h1 class="mb-4">{{ $slot }}</h1>
+<h1 class="mb-4 text-dark" style="font-family: 'Righteous';">{{ $slot }}</h1>
