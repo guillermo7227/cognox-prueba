@@ -1,3 +1,90 @@
+## Prueba COGNOX
+
+### Instrucciones de instalación
+
+- Clonar el repositorio
+ 
+   `git clone https://github.com/guillermo7227/cognox-prueba`
+ 
+- Asegurarse de que Docker esté instalado y corriendo
+
+- Asegurar de tener el archivo `.env` en la carpeta raíz (abajo en esta página está el contenido del archivo .env)
+
+- Instalar dependencias de Laravel Sail (Soporta Linux, MacOS y WSL en Windows)
+  
+    `docker run --rm -u "$(id -u):$(id -g)" -v $(pwd):/opt -w /opt laravelsail/php80-composer:latest composer install --ignore-platform-reqs`
+
+- Subir los contenedores (Este comando puede tardar varios minutos en ejecutarse completamente la primera vez que se corre)
+
+    `./vendor/bin/sail up`
+
+- Correr las migraciones
+
+    `./vendor/bin/sail artisan migrate --seed`
+    
+- Visitar `localhost` en el navegador
+- Iniciar sesión con las credenciales: Identificación: **1234567**  Contraseña: **1234**
+
+
+
+## .env
+
+```
+APP_NAME="Banco COGNOX"
+APP_ENV=local
+APP_KEY=base64:yb2H9/TwF9R/DUUaMj3G4Ax+b/TyXV8j+TMZgrSTZ3M=
+APP_DEBUG=true
+APP_URL=http://cognox-prueba.test
+
+LOG_CHANNEL=stack
+LOG_LEVEL=debug
+
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=cognox_prueba
+DB_USERNAME=sail
+DB_PASSWORD=password
+
+BROADCAST_DRIVER=log
+CACHE_DRIVER=file
+FILESYSTEM_DRIVER=local
+QUEUE_CONNECTION=sync
+SESSION_DRIVER=file
+SESSION_LIFETIME=120
+
+MEMCACHED_HOST=memcached
+
+REDIS_HOST=redis
+REDIS_PASSWORD=null
+REDIS_PORT=6379
+
+MAIL_MAILER=smtp
+MAIL_HOST=mailhog
+MAIL_PORT=1025
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+MAIL_FROM_ADDRESS=null
+MAIL_FROM_NAME="${APP_NAME}"
+
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+AWS_DEFAULT_REGION=us-east-1
+AWS_BUCKET=
+AWS_USE_PATH_STYLE_ENDPOINT=false
+
+PUSHER_APP_ID=
+PUSHER_APP_KEY=
+PUSHER_APP_SECRET=
+PUSHER_APP_CLUSTER=mt1
+
+MIX_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
+MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
+
+```
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
