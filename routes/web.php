@@ -38,5 +38,9 @@ Route::group([
 
     Route::get('to-external-account', [TransferenceController::class, 'toExternalAccount'])->name('to-external-account');
 
+    Route::get('list', [TransferenceController::class, 'list'])->name('list');
+
+    Route::get('get-list', [TransferenceController::class, 'getList'])->name('get-list');
+
     Route::post('store', [TransferenceController::class, 'store'])->name('store');
 });
